@@ -68,25 +68,26 @@ public class Differ {
 
         strings.stream()
 
-                .forEach(s ->{
-                    if (s.charAt(s.length()-1) == '+') {
-                        s= ("+" + s).substring(0,s.length());
-                    }
-                    if(s.charAt(s.length()-1) == '-') {
-                        s= ("-" + s).substring(0,s.length());
+
+                        .forEach(s ->{
+                    if (s.charAt(s.length()-1) == '+'|| s.charAt(s.length()-1) == '-') {
+                        s = (s.charAt(s.length()-1) + s).substring(0,s.length());
+                    }else {
+                        s= " " + s;
                     }
 
                     stringBuilder.append(s);});
 
 
+
  return stringBuilder.toString() ;
     }
     public static <K,T> String diff(Map map1,Map map2, K key, T value) {
-        String differ = key + " :";
+        String differ = key + " : ";
 
         if (map1.containsKey(key) && map2.containsKey(key)) {
             if (map1.get(key).equals(map2.get(key))) {
-                differ =  " " + differ + map1.get(key) + "\n_";
+                differ =  "" + differ + map1.get(key) + "\n_";
             }else{
                 differ =  differ + map1.get(key) + "\n" + "+" +differ + map2.get(key)+ "\n_-"  ;
             }
