@@ -15,6 +15,7 @@ import java.util.concurrent.Callable;
 @CommandLine.Command (name = "gendiff",version =  "gendiff 1.00", description = "Compares two configuration files and shows a difference.")
 public class App implements Callable {
 
+
     private static boolean follow;
     @CommandLine.Parameters( paramLabel ="filepath1", description = "path to first file")
     private String filepath1;
@@ -33,7 +34,7 @@ public class App implements Callable {
 
 
 App app = new App();
-//
+// comment
 
        int something = new CommandLine(app ).execute("-h");
 
