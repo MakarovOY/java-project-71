@@ -18,18 +18,7 @@ public class Differ {
 
 
     public static String generate (String filepath1, String filepath2 ) throws Exception{
-//        Path path1 = Paths.get(filepath1).toAbsolutePath().normalize();
-//        Path path2 = Paths.get(filepath2).toAbsolutePath().normalize();
-//
-//        String json1 = Files.readString(path1);
-//        String json2 = Files.readString(path2);
-//
-//        ObjectMapper objectMapper1 = new ObjectMapper();
-//        ObjectMapper objectMapper2 = new ObjectMapper();
-//
-//
-//        var map1 = objectMapper1.readValue(json1,Map.class);
-//        var map2 = objectMapper2.readValue(json2,Map.class);
+
         var map1 = Parser.parse(filepath1);
         var map2 = Parser.parse(filepath2);
 
@@ -61,7 +50,7 @@ public class Differ {
 
                     stringBuilder.append(s);});
         String diffResult = stringBuilder.toString() ;
-        String diffResult2 = "{ \n" + diffResult + "}";
+
 
                     return "{ \n" + diffResult + "}";
     }

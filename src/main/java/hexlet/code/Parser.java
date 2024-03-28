@@ -2,8 +2,6 @@ package hexlet.code;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
-//import com.fasterxml.jackson.dataformat.yaml.util.;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,25 +16,19 @@ public class Parser {
         Map map = new HashMap<>();
         String str = Files.readString(path);
 
-      String str1Arr =  filepath.substring(filepath.length()-4);
-      if(str1Arr.equals("json")){
+      String str1Arr =  filepath.substring(filepath.length()-3);
+      if(str1Arr.equals("son")){
 
           ObjectMapper objectMapper1 = new ObjectMapper();
 
-
-
            map = objectMapper1.readValue(str,Map.class);
       }
-        if(str1Arr.equals("yaml")){
+        if(str1Arr.equals("aml")||str1Arr.equals("yml") ){
             ObjectMapper mapper = new YAMLMapper();
              map = mapper.readValue(str, Map.class);
-
         }
 
-
-
         return map;
-
 
     }
 
