@@ -22,10 +22,7 @@ public class Parser {
           ObjectMapper objectMapper1 = new ObjectMapper();
 
            map = objectMapper1.readValue(str,Map.class);
-//           map.forEach((k,v)->{
-//               var getC = v.getClass();
-//               System.out.println(getC);
-//           });
+
       }
         if(str1Arr.equals("aml")||str1Arr.equals("yml") ){
             ObjectMapper mapper = new YAMLMapper();

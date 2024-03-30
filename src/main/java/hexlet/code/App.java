@@ -36,7 +36,7 @@ public class App implements Callable {
 App app = new App();
 // comment
 
-       int something = new CommandLine(app ).execute("-h");
+      // int something = new CommandLine(app ).execute("-h");
 
         app.call();
       //  var str = Differ.generate("C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file1.json","C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file2.json");

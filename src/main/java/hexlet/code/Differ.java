@@ -21,50 +21,8 @@ public class Differ {
 
         });
 
-//        resultMap.forEach((k,v)->{
-//            System.out.println(k);
-//            System.out.println(v);
-//        });
 
 
-
-
-
-//        List<String> strings = new ArrayList<>();
-//
-//        map1.forEach((key,value)->{
-//
-//            strings.add(diff(map1,map2,key,value));
-//        });
-//        map2.forEach((key,value)->{
-//            if(!map1.containsKey(key) && map2.containsKey(key)){
-//
-//            strings.add(diff(map1,map2,key,value));
-//            }
-//        });
-//        StringBuilder stringBuilder =new StringBuilder();
-//        Collections.sort(strings);
-//
-//        strings.stream()
-//
-//
-//                        .forEach(s ->{
-//                    if (s.charAt(s.length()-1) == '+'|| s.charAt(s.length()-1) == '-') {
-//                        s = (s.charAt(s.length()-1) + s).substring(0,s.length());
-//                    }else {
-//                        s= " " + s;
-//                    }
-//
-//                    stringBuilder.append(s);});
-//        String diffResult = stringBuilder.toString() ;
-//
-//
-//                    return "{ \n" + diffResult + "}";
-
-//        EntPresent.pres(map1,map2).forEach((k,v)->{
-//            System.out.println(k);
-//            System.out.println(v);
-//        });
 
         String resStr ="{\n" + format(resultMap,map1,map2) + "}";
         return resStr;
