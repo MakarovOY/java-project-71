@@ -27,16 +27,16 @@ public class App implements Callable {
     @CommandLine.Option(names = {"V", "--version"}, description = "Print version information and exit." )
     boolean version;
 
-    @CommandLine.Option( names = {"-f", "--format"},  paramLabel = "format", description = "output format [default: stylish]")
+    @CommandLine.Option( names = {"-f", "--format"},defaultValue = "stylish", paramLabel = "format", description = "output format [default: ${DEFAULT-VALUE}]")
     File file;
 
     public static void main(String[] args) throws Exception  {
 
 
-App app = new App();
-// comment
+    App app = new App();
 
-      // int something = new CommandLine(app ).execute("-h");
+
+       int something = new CommandLine(app ).execute("-h");
 
         app.call();
       //  var str = Differ.generate("C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file1.json","C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file2.json");
@@ -45,8 +45,8 @@ App app = new App();
     }
     @Override
     public Integer call() throws Exception{
-        System.out.println(Differ.generate("C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file1.json",
-                "C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file2.json"));
+        System.out.println(Differ.generate("C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file3.json",
+                "C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file4.json"));
         return 1;
     }
 

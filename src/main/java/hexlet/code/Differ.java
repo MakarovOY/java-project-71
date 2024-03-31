@@ -17,15 +17,15 @@ public class Differ {
         allKeys.forEach(e->{
 
 
-                resultMap.put(e, Condition.getChangeInfo(map1,map2,e));
+                resultMap.put(e, FileCondition.getChangeIndex(map1,map2,e));
 
         });
 
 
 
 
-        String resStr ="{\n" + format(resultMap,map1,map2) + "}";
-        return resStr;
+        String resaltString ="{\n" + format(resultMap,map1,map2) + "}";
+        return resaltString;
     }
 
     public static <K,T> String diff(Map map1,Map map2, K key, T value) {
@@ -80,21 +80,19 @@ public class Differ {
        StringBuilder stringBuilder =new StringBuilder();
 
         resultMap.forEach((k,v)->{
-            if(v.equals(Condition.valueOfKeyDoesntChange)){
+            if(v.equals(FileCondition.valueOfKeyDoesntChange)){
                 stringBuilder.append("  " + k + ": " + map1.get(k)+ "\n");
             }
-            else if(v.equals(Condition.valueOfKeyWasChanged) )
-            {
+            else if(v.equals(FileCondition.valueOfKeyWasChanged) ) {
                 stringBuilder.append(" -" + k + ": " + map1.get(k)+ "\n +" + k + ": " + map2.get(k)+ "\n");
 
             }
-            else if (v.equals(Condition.keyWasDeleted)) {
+            else if (v.equals(FileCondition.keyWasDeleted)) {
                 stringBuilder.append(" -" + k + ": " + map1.get(k)+ "\n");
 
-            }else
-            {
+            }else if(v.equals(FileCondition.keyWasAdded)) {
               stringBuilder.append(" +" + k + ": " + map2.get(k)+ "\n");
-          }
+            }
 
 
         });
