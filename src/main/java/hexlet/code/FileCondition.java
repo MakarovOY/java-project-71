@@ -32,12 +32,9 @@ public class FileCondition {
     public static int getChangeIndex(Map map1, Map map2, String key){
 
        int changeIndex =0 ;
-        if(map1.get(key)==null  ){
-            map1.replace(key,"null");
-        }
-        if(map2.get(key)==null ){
-            map2.replace(key,"null");
-        }
+
+        checkAndReplaceNullValue(map1,key);
+        checkAndReplaceNullValue(map2,key);
 
         if (map1.containsKey(key) && map2.containsKey(key)){
 
@@ -55,6 +52,12 @@ public class FileCondition {
 
 
         return  changeIndex;
+
+    }
+    public static void checkAndReplaceNullValue(Map map, String key){
+        if(map.get(key)==null  ){
+            map.replace(key,"null");
+        }
 
     }
 }
