@@ -28,7 +28,9 @@ public class Parser {
             ObjectMapper mapper = new YAMLMapper();
              map = mapper.readValue(str, Map.class);
         }
-
+//map.forEach((k,v)->{
+//    System.out.println(v.getClass().getName());
+//});
 
         return map;
 

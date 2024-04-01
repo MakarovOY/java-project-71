@@ -24,7 +24,7 @@ public class Differ {
 
 
 
-        String resaltString ="{\n" + format(resultMap,map1,map2) + "}";
+        String resaltString ="{\n" + formatPlain(resultMap,map1,map2) + "}";
         return resaltString;
     }
 
@@ -75,7 +75,7 @@ public class Differ {
 //       return true;
 //    }
 
-   public static String format( Map resultMap, Map map1, Map map2){
+   public static String formatStylish(Map resultMap, Map map1, Map map2){
 
        StringBuilder stringBuilder =new StringBuilder();
 
@@ -99,5 +99,49 @@ public class Differ {
             return stringBuilder.toString();
    }
 
+   public static String formatPlain (Map resultMap, Map map1, Map map2){
+       StringBuilder stringBuilder =new StringBuilder();
+        map1.forEach((k,v)->{
+            if(!isValuePrimitive(v)){
+                map1.put(k, "[complex value]");
+            }
+        });
+       map2.forEach((k,v)->{
+           if(!isValuePrimitive(v)){
+               map2.put(k, "[complex value]");
+           }
+       });
+
+       resultMap.forEach((k,v)->{
+
+            if(v.equals(FileCondition.valueOfKeyWasChanged) ) {
+               stringBuilder.append("Property '"+ k +"' was updated. From " + map1.get(k) + " to " + map2.get(k)+ "\n");
+
+           }
+           else if (v.equals(FileCondition.keyWasDeleted)) {
+               stringBuilder.append("Property '"+ k + "' was removed"+ "\n");
+
+           }else if(v.equals(FileCondition.keyWasAdded)) {
+               stringBuilder.append("Property '"+ k +"' was added with value: "+ map2.get(k)+ "\n");
+           }
+
+
+       });
+       return stringBuilder.toString();
+}
+
+
+    public static <T> boolean isValuePrimitive(T value) {
+
+         if(value.getClass().getName().equals("java.lang.String")){
+            return true;
+         } else if (value.getClass().getName().equals("java.lang.Integer")) {
+             return true;
+         } else if(value.getClass().getName().equals("java.lang.Boolean")) {
+             return true;
+         }
+
+    return false;
+}
 
 }
