@@ -4,49 +4,31 @@ import java.util.*;
 
 public class FileCondition {
 
-    final static int valueOfKeyDoesntChange = 0;
-    final static int valueOfKeyWasChanged = 1;
-    final static int keyWasDeleted = 2;
-    final static int  keyWasAdded = 3;
+    final static int VALUE_OF_KEY_DOESNT_CHANGE = 0;
+    final static int VALUE_OF_KEY_WAS_CHANGED = 1;
+    final static int KEY_WAS_DELETED = 2;
+    final static int KEY_WAS_ADDED = 3;
 
-//    public static Map innerCondition (Map map1, Map map2) {
-//
-//
-//        List<String> keys1= new ArrayList<>();
-//        map1.forEach((k,v)->keys1.add((String)k));
-//        Collections.sort(keys1);
-//
-//        List<String> keys2= new ArrayList<>();
-//        map2.forEach((k,v)->keys2.add((String)k));
-//
-//
-//
-//       LinkedHashMap resultMap = new LinkedHashMap();
-//
-//
-//
-//return resultMap;
-//
-//    }
 
-    public static int getChangeIndex(Map map1, Map map2, String key){
 
-       int changeIndex =0 ;
+    public static int getChangeIndex(Map map1, Map map2, String key) {
 
-        checkAndReplaceNullValue(map1,key);
-        checkAndReplaceNullValue(map2,key);
+        int changeIndex = 0;
 
-        if (map1.containsKey(key) && map2.containsKey(key)){
+        checkAndReplaceNullValue(map1, key);
+        checkAndReplaceNullValue(map2, key);
 
-            changeIndex= (map1.get(key).equals(map2.get(key)))? 0: 1;
+        if (map1.containsKey(key) && map2.containsKey(key)) {
+
+            changeIndex = (map1.get(key).equals(map2.get(key))) ? 0 : 1;
 
         }
-        if(map1.containsKey(key) && !map2.containsKey(key)){
-            changeIndex= 2;
+        if (map1.containsKey(key) && !map2.containsKey(key)) {
+            changeIndex = 2;
 
         }
-                if(!map1.containsKey(key) && map2.containsKey(key)){
-                    changeIndex =  3;
+        if (!map1.containsKey(key) && map2.containsKey(key)) {
+            changeIndex =  3;
 
         }
 
@@ -54,9 +36,9 @@ public class FileCondition {
         return  changeIndex;
 
     }
-    public static void checkAndReplaceNullValue(Map map, String key){
-        if(map.get(key)==null  ){
-            map.replace(key,"null");
+    public static void checkAndReplaceNullValue(Map map, String key) {
+        if (map.get(key) == null) {
+            map.replace(key, "null");
         }
 
     }
