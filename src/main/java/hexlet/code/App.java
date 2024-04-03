@@ -1,15 +1,15 @@
 package hexlet.code;
 
 import picocli.CommandLine;
-import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
-import picocli.CommandLine.Parameters;
+//import picocli.CommandLine.Command;
+//import picocli.CommandLine.Option;
+//import picocli.CommandLine.Parameters;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Scanner;
+//import java.nio.file.Files;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
+//import java.util.Scanner;
 import java.util.concurrent.Callable;
 
 @CommandLine.Command (name = "gendiff", version =  "gendiff 1.00", description = "Compares two configuration"

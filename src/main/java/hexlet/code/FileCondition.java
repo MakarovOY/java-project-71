@@ -1,6 +1,8 @@
 package hexlet.code;
 
-import java.util.*;
+//import java.util.*;
+
+import java.util.Map;
 
 public class FileCondition {
 
