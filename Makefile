@@ -15,6 +15,6 @@ report:
 	./gradlew jacocoTestReport
 
 report:
-	make -C app report
+	make  app report
 
 .PHONY: build
