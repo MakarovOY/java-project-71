@@ -11,7 +11,7 @@ public class Differ {
 
 
 
-    public static String generate(String filepath1, String filepath2) throws Exception {
+    public static String generate(String filepath1, String filepath2, String formatName) throws Exception {
 
         var map1 = Parser.parse(filepath1);
         var map2 = Parser.parse(filepath2);
@@ -25,33 +25,45 @@ public class Differ {
 
         });
 
+        switch (formatName){
+            case "Stylish":
+                return formatStylish(resultMap, map1, map2);
+            case "Plain":
+                return formatPlain(resultMap, map1, map2);
+            default:
+                break;
 
+        }
 
+//
+//
+        return formatStylish(resultMap, map1, map2);
+    }
+    public static String generate(String filepath1, String filepath2) throws Exception {
 
-        String resaltString = "{\n" + formatStylish(resultMap, map1, map2) + "}";
-        return resaltString;
+        return generate(filepath1, filepath2,"Stylish" );
     }
 
-    public static <K, T> String diff(Map map1, Map map2, K key, T value) {
-        String differ = key + " : ";
-
-
-        if (map1.containsKey(key) && map2.containsKey(key)) {
-            differ = (map1.get(key).equals(map2.get(key)))
-                    ? "" + differ + map1.get(key) + "\n_" : differ + map1.get(key)
-                    + "\n" + "+" + differ + map2.get(key) + "\n_-";
-        }
-        if (map1.containsKey(key) && !map2.containsKey(key)) {
-            differ =  differ + map1.get(key) + "\n_-";
-
-        }
-        if (!map1.containsKey(key) && map2.containsKey(key)) {
-            differ =  differ + map2.get(key) + "\n_+";
-
-        }
-
-        return differ.replaceAll("_", "");
-    }
+//    public static <K, T> String diff(Map map1, Map map2, K key, T value) {
+//        String differ = key + " : ";
+//
+//
+//        if (map1.containsKey(key) && map2.containsKey(key)) {
+//            differ = (map1.get(key).equals(map2.get(key)))
+//                    ? "" + differ + map1.get(key) + "\n_" : differ + map1.get(key)
+//                    + "\n" + "+" + differ + map2.get(key) + "\n_-";
+//        }
+//        if (map1.containsKey(key) && !map2.containsKey(key)) {
+//            differ =  differ + map1.get(key) + "\n_-";
+//
+//        }
+//        if (!map1.containsKey(key) && map2.containsKey(key)) {
+//            differ =  differ + map2.get(key) + "\n_+";
+//
+//        }
+//
+//        return differ.replaceAll("_", "");
+//    }
 
     public static List sortAllKeys(Map map1, Map map2) {
         ArrayList<String> sortedAllKeys = new ArrayList<>();
@@ -72,13 +84,7 @@ public class Differ {
 
         return sortedAllKeys;
     }
-//    public static boolean valueIsObject(Map map, String key){
-//       var classOfValue =  map.get(key).getClass();
-//       if (!classOfValue.isPrimitive()){
-//           return false;
-//       }
-//       return true;
-//    }
+
 
     public static String formatStylish(Map resultMap, Map map1, Map map2) {
 
@@ -99,21 +105,14 @@ public class Differ {
 
 
         });
-        return stringBuilder.toString();
+        return  "{\n" + stringBuilder.toString() + "}";
     }
 
     public static String formatPlain(Map resultMap, Map map1, Map map2) {
         StringBuilder stringBuilder = new StringBuilder();
-        map1.forEach((k, v) -> {
-            if (!isValuePrimitive(v)) {
-                map1.put(k, "[complex value]");
-            }
-        });
-        map2.forEach((k, v) -> {
-            if (!isValuePrimitive(v)) {
-                map2.put(k, "[complex value]");
-            }
-        });
+
+        changeObjectValue(map1);
+        changeObjectValue(map2);
 
         resultMap.forEach((k, v) -> {
 
@@ -142,8 +141,23 @@ public class Differ {
             return true;
         } else if (value.getClass().getName().equals("java.lang.Boolean")) {
             return true;
+        } else if (value.getClass().getName().equals("java.lang.Double")) {
+            return true;
+        } else if (value.getClass().getName().equals("java.lang.Float")) {
+            return true;
+        } else if (value.getClass().getName().equals("java.lang.Char")) {
+            return true;
         }
+
         return false;
+    }
+    public static Map changeObjectValue(Map map) {
+        map.forEach((k, v) -> {
+            if (!isValuePrimitive(v)) {
+                map.put(k, "[complex value]");
+            }
+        });
+        return map;
     }
 
 }

@@ -15,22 +15,37 @@ public class Parser {
 
         Map map = new HashMap<>();
         String str = Files.readString(path);
+        int lastDotIndex = filepath.lastIndexOf('.');
+        String fileExtension = filepath.substring(lastDotIndex + 1, filepath.length());
 
-        String str1Arr =  filepath.substring(filepath.length() - 3);
-        if (str1Arr.equals("son")) {
+        switch (fileExtension) {
+            case "yaml":
+            case "yml":
+                ObjectMapper mapper = new YAMLMapper();
+                map = mapper.readValue(str, Map.class);
+                break;
+            case "json":
 
-            ObjectMapper objectMapper1 = new ObjectMapper();
-
-            map = objectMapper1.readValue(str, Map.class);
-
+                ObjectMapper objectMapper1 = new ObjectMapper();
+                map = objectMapper1.readValue(str, Map.class);
+                break;
+            default:
+                break;
         }
-        if (str1Arr.equals("aml") || str1Arr.equals("yml")) {
-            ObjectMapper mapper = new YAMLMapper();
-            map = mapper.readValue(str, Map.class);
-        }
-//map.forEach((k,v)->{
-//    System.out.println(v.getClass().getName());
-//});
+
+//        String str1Arr =  filepath.substring(filepath.length() - 3);
+//        if (str1Arr.equals("son")) {
+//
+//            ObjectMapper objectMapper1 = new ObjectMapper();
+//
+//            map = objectMapper1.readValue(str, Map.class);
+//
+//        }
+//        if (str1Arr.equals("aml") || str1Arr.equals("yml")) {
+//            ObjectMapper mapper = new YAMLMapper();
+//            map = mapper.readValue(str, Map.class);
+//        }
+
 
         return map;
 
