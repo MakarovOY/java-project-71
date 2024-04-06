@@ -135,22 +135,23 @@ public class Differ {
 
     public static <T> boolean isValuePrimitive(T value) {
 
-        if (value.getClass().getName().equals("java.lang.String")) {
-            return true;
-        } else if (value.getClass().getName().equals("java.lang.Integer")) {
-            return true;
-        } else if (value.getClass().getName().equals("java.lang.Boolean")) {
-            return true;
-        } else if (value.getClass().getName().equals("java.lang.Double")) {
-            return true;
-        } else if (value.getClass().getName().equals("java.lang.Float")) {
-            return true;
-        } else if (value.getClass().getName().equals("java.lang.Char")) {
-            return true;
+        var typeName = value.getClass().getName();
+
+         switch (typeName){
+             case "java.lang.String":
+             case "java.lang.Integer":
+             case "java.lang.Boolean":
+             case "java.lang.Double":
+             case "java.lang.Float":
+             case "java.lang.Char":
+                 return true;
+             default:
+                 return false;
+         }
         }
 
-        return false;
-    }
+
+
     public static Map changeObjectValue(Map map) {
         map.forEach((k, v) -> {
             if (!isValuePrimitive(v)) {
