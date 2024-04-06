@@ -6,10 +6,10 @@ import java.util.Map;
 
 public class FileCondition {
 
-    static final int VALUE_OF_KEY_DOESNT_CHANGE = 0;
-    static final int VALUE_OF_KEY_WAS_CHANGED = 1;
-    static final int KEY_WAS_DELETED = 2;
-    static final int KEY_WAS_ADDED = 3;
+    public static final int VALUE_OF_KEY_DOESNT_CHANGE = 0;
+    public static final int VALUE_OF_KEY_WAS_CHANGED = 1;
+    public static final int KEY_WAS_DELETED = 2;
+    public static final int KEY_WAS_ADDED = 3;
 
 
 
