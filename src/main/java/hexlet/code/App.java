@@ -17,7 +17,6 @@ import java.util.concurrent.Callable;
 public class App implements Callable {
 
 
-//    private static boolean follow;
     @CommandLine.Parameters(paramLabel = "filepath1", description = "path to first file")
     private String filepath1;
     @CommandLine.Parameters(paramLabel = "filepath2", description = "path to second file")
@@ -38,19 +37,16 @@ public class App implements Callable {
         App app = new App();
 
 
-//    int something = new CommandLine(app).execute("C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file3.json",
-//                "C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file4.json");
+    int something = new CommandLine(app).execute();
 
         app.call();
-      //  var str = Differ.generate("C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file1.json",
-        //  "C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file2.json");
-//
+
 
     }
     @Override
     public Integer call() throws Exception {
         System.out.println(Differ.generate("C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file3.json",
-                "C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file4.json", "Json"));
+                "C:\\Users\\PC SAN\\IdeaProjects\\java-project-71\\app\\file4.json"));
         return 1;
     }
 
