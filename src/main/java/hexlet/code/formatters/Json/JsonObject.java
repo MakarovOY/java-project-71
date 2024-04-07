@@ -41,8 +41,5 @@ public class JsonObject {
     public void setKeyWasAdded(Map keyWasAdded) {
         this.keyWasAdded = keyWasAdded;
     }
-//    public JsonObject objWithoutNull(){
-//
-//        if(this.getValueOfKeyDoesntChange().equals(null))
-//    }
+
 }
