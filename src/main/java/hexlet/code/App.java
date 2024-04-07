@@ -37,7 +37,7 @@ public class App implements Callable {
         App app = new App();
 
 
-    int something = new CommandLine(app).execute();
+        int something = new CommandLine(app).execute();
 
         app.call();
 
