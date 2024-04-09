@@ -26,7 +26,7 @@ public class PlainFormat {
 
 
         });
-        return stringBuilder.toString();
+        return stringBuilder.toString().trim();
     }
 
 
