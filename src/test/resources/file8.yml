@@ -1,0 +1,6 @@
+{
+  "key1": "Some text",
+  "numbers1": [1, 2],
+  "numbers2": [3, 4, 5],
+  "chars": ["a", "b", "c", "d"] 
+}
