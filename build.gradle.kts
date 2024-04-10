@@ -5,7 +5,7 @@ plugins {
 
     application
     id ("checkstyle")
-    id ("jacoco")
+
     jacoco
 }
 
