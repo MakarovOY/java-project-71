@@ -8,14 +8,16 @@ install:
 	./gradlew clean install
 test:
 	./gradlew test
+report:
+	./gradlew jacocoTestReport
 
 
 run-dist:
 	./build/install/app/bin/app
 
 
-report:
-	./gradlew jacocoTestReport
+
+build-run: build run
 
 
 .PHONY: build
