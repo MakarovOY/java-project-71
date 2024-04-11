@@ -28,7 +28,7 @@ public class PlainFormat {
         });
         return stringBuilder.toString().trim();
     }
-
+//
 
     public static <T> boolean isValuePrimitive(T value) {
 
