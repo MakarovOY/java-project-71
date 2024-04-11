@@ -32,6 +32,7 @@ dependencies {
 
 
 tasks.test {
+
     useJUnitPlatform()
     // https://technology.lastminute.com/junit5-kotlin-and-gradle-dsl/
     testLogging {
@@ -41,7 +42,10 @@ tasks.test {
         // showCauses = true
         showStandardStreams = true
 
+
     }
+
+    enabled = true
 }
 tasks.jacocoTestReport {
     reports {
