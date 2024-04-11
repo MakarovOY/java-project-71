@@ -4,10 +4,11 @@ clean:
 build:
 	./gradlew clean build
 
-test:
-	./gradlew test
 install:
 	./gradlew clean install
+test:
+	./gradlew test
+
 
 run-dist:
 	./build/install/app/bin/app
