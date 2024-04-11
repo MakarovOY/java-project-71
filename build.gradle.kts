@@ -1,12 +1,13 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.kotlin.dsl.apply as apply
 
 plugins {
 
     application
     id ("checkstyle")
+    id ("jacoco")
 
-    jacoco
 }
 
 
@@ -28,6 +29,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
+
 tasks.test {
     useJUnitPlatform()
     // https://technology.lastminute.com/junit5-kotlin-and-gradle-dsl/
@@ -37,6 +39,7 @@ tasks.test {
         // showStackTraces = true
         // showCauses = true
         showStandardStreams = true
+
     }
 }
 tasks.jacocoTestReport {
