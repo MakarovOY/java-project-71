@@ -45,7 +45,6 @@ tasks.test {
 
     }
 
-    enabled = true
 }
 tasks.jacocoTestReport {
     reports {
