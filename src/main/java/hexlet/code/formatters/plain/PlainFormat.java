@@ -40,7 +40,7 @@ public class PlainFormat {
             case "java.lang.Boolean":
             case "java.lang.Double":
             case "java.lang.Float":
-            case "java.lang.Char":
+            case "java.lang.Character":
                 return true;
             default:
                 return false;
