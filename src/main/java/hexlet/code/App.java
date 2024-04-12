@@ -41,7 +41,6 @@ public class App implements Callable {
 
         app.call();
 
-
     }
     @Override
     public Integer call() throws Exception {
