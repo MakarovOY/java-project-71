@@ -44,8 +44,8 @@ class DifferTest {
 
 
         String actual =
-                Differ.generate("file1.yml", "file2.yml");
-        Assertions.assertEquals(expected, actual);
+                Differ.generate("src\\test\\resources\\file7.yml", "src\\test\\resources\\file8.yml");
+        Assertions.assertEquals(resultStringForTest, actual);
     }
     @Test
     public void testDifferFormatPlain() throws Exception {

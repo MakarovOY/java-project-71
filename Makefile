@@ -13,7 +13,7 @@ install:
 	./gradlew clean install
 
 run-dist:
-	./build/install/app/bin/app file1.json file2.json
+	 build\install\app\bin\app -f Json file3.json file4.json
 
 run:
 	./gradlew run
