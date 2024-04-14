@@ -44,8 +44,8 @@ public class App implements Callable {
     }
     @Override
     public Integer call() throws Exception {
-        System.out.println(Differ.generate("file7.json",
-                "file8.json", "Json"));
+        System.out.println(Differ.generate("file1.json",
+                "file2.json", "Json"));
         return 1;
     }
 
