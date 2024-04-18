@@ -5,9 +5,10 @@ import org.gradle.kotlin.dsl.apply as apply
 plugins {
 
     application
-    id ("checkstyle")
-    id ("jacoco")
     jacoco
+    id ("checkstyle")
+
+
 
 }
 
