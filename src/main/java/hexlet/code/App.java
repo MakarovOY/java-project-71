@@ -31,8 +31,7 @@ public class App implements Callable {
     @CommandLine.Parameters(paramLabel = "filepath2", description = "path to second file")
     private String filepath2;
 
-//    String[] args = {"-f", filepath1, filepath2};
-//
+
 
     public static void main(String[] args) throws Exception  {
 
@@ -43,7 +42,7 @@ public class App implements Callable {
 
 
         app.call();
-        //
+
 
     }
     @Override

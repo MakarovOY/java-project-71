@@ -30,11 +30,11 @@ public class Differ {
         });
 
         switch (formatName) {
-            case "Stylish":
+            case "stylish":
                 return StylishFormat.formatStylish(resultMap, map1, map2);
-            case "Plain":
+            case "plain":
                 return PlainFormat.formatPlain(resultMap, map1, map2);
-            case "Json":
+            case "json":
                 return JsonFormat.formatJson(resultMap, map1, map2);
             default:
                 break;
@@ -47,7 +47,7 @@ public class Differ {
     }
     public static String generate(String filepath1, String filepath2) throws Exception {
 
-        return generate(filepath1, filepath2,  "Stylish");
+        return generate(filepath1, filepath2,  "stylish");
     }
 
 
