@@ -65,7 +65,7 @@ jobs:
           distribution: 'temurin'
           
       - name: Generate test coverage report
-        run: ./gradlew clean test jacocoTestReport
+        run: gradle clean test jacocoTestReport
 
 
       # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
