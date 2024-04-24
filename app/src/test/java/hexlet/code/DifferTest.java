@@ -15,7 +15,8 @@ class DifferTest {
     public void createStringForTestStylish() {
         resultStringForTest =
                 "{\n  + chars: [a, b, c, d]\n   key1: Some text\n  - key3: null\n"
-                        + "  - numbers1: [1, 2, 3, 4]\n  + numbers1: [1, 2]\n  + numbers2: [3, 4, 5]\n  - setting: true\n}";
+                        + "  - numbers1: [1, 2, 3, 4]\n  "
+                        + "+ numbers1: [1, 2]\n  + numbers2: [3, 4, 5]\n  - setting: true\n}";
     }
     @BeforeEach
     public void createStringForTestPlain() {
