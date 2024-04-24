@@ -13,7 +13,7 @@ install:
 	./gradlew clean install
 
 run-dist:
-	 build\install\app\bin\app -f json file3.json file4.json
+	 build\install\app\bin\app -f stylish file3.json file4.json
 
 run:
 	./gradlew run
