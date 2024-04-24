@@ -24,7 +24,7 @@ public class StylishFormat {
 
 
         });
-        return  "{ \n" + stringBuilder.toString() + "}";
+        return  "{  \n" + stringBuilder.toString() + " }";
     }
 
 }
