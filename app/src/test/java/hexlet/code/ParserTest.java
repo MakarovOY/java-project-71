@@ -24,7 +24,7 @@ class ParserTest {
     public void testParseJSON() throws Exception {
 
         Map actual =
-            Parser.parseToJavaObject("src\\test\\resources\\fixtures\\file1.json");
+            Parser.parseToJavaObject("src/test/resources/fixtures/file1.json");
 
         assertEquals(expected, actual);
 
@@ -33,7 +33,7 @@ class ParserTest {
     public void testParseYAML() throws Exception {
 
         Map actual =
-                Parser.parseToJavaObject("src\\test\\resources\\fixtures\\file1.yml");
+                Parser.parseToJavaObject("src/test/resources/fixtures/file1.yml");
 
         assertEquals(expected, actual);
     }
