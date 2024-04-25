@@ -1,6 +1,6 @@
 package hexlet.code;
 
-//import java.util.*;
+
 
 import java.util.Map;
 
@@ -15,22 +15,22 @@ public class FileCondition {
 
     public static int getChangeIndex(Map map1, Map map2, String key) {
 
-        int changeIndex = 0;
+        int changeIndex = VALUE_OF_KEY_DOESNT_CHANGE;
 
         checkAndReplaceNullValue(map1, key);
         checkAndReplaceNullValue(map2, key);
 
         if (map1.containsKey(key) && map2.containsKey(key)) {
 
-            changeIndex = (map1.get(key).equals(map2.get(key))) ? 0 : 1;
+            changeIndex = (map1.get(key).equals(map2.get(key))) ? VALUE_OF_KEY_DOESNT_CHANGE : VALUE_OF_KEY_WAS_CHANGED;
 
         }
         if (map1.containsKey(key) && !map2.containsKey(key)) {
-            changeIndex = 2;
+            changeIndex = KEY_WAS_DELETED;
 
         }
         if (!map1.containsKey(key) && map2.containsKey(key)) {
-            changeIndex =  3;
+            changeIndex =  KEY_WAS_ADDED;
 
         }
 

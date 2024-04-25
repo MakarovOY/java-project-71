@@ -33,7 +33,7 @@ class ParserTest {
     public void testParseYAML() throws Exception {
 
         Map actual =
-                Parser.parseToJavaObject("file1.yml");
+                Parser.parseToJavaObject("fixtures/file1.yml");
 
         assertEquals(expected, actual);
     }
