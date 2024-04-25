@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 class DifferTest {
 
-    String resultStringForTest;
-    String resultStringFonTestPlain;
+    private String resultStringForTest;
+    private String resultStringFonTestPlain;
 
 
     @BeforeEach

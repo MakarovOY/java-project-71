@@ -10,7 +10,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParserTest {
-    Map expected = new HashMap();
+    private Map expected = new HashMap();
 
     @BeforeEach
             public void createMap() {
