@@ -31,7 +31,8 @@ class DifferTest {
     public void testDifferJSONStylish() throws Exception {
 
 
-        String actual = Differ.generate("src\\test\\resources\\fixtures\\file7.json", "src\\test\\resources\\fixtures\\file8.json");
+        String actual = Differ.generate("src\\test\\resources\\fixtures\\file7.json",
+                "src\\test\\resources\\fixtures\\file8.json");
         Assertions.assertEquals(resultStringForTest, actual);
 
     }
@@ -50,7 +51,8 @@ class DifferTest {
     }
     @Test
     public void testDifferFormatPlain() throws Exception {
-        String actual = Differ.generate("src/test/resources/fixtures/file7.json", "src/test/resources/fixtures/file8.json", "plain");
+        String actual = Differ.generate("src/test/resources/fixtures/file7.json",
+                "src/test/resources/fixtures/file8.json", "plain");
         Assertions.assertEquals(resultStringFonTestPlain, actual);
     }
     @Test
@@ -58,7 +60,8 @@ class DifferTest {
         String expected = "{\"valueOfKeyDoesntChange\":{\"key1\":\"Some text\"},\"valueOfKeyWasChanged\""
                 + ":{\"numbers1\":\"[1, 2, 3, 4] before, [1, 2] after\"},\"keyWasDeleted\":{\"key3\":\"null\","
                 + "\"setting\":true},\"keyWasAdded\":{\"numbers2\":[3,4,5],\"chars\":[\"a\",\"b\",\"c\",\"d\"]}}";
-        String actual = Differ.generate("src/test/resources/fixtures/file7.json", "src/test/resources/fixtures/file8.json", "json");
+        String actual = Differ.generate("src/test/resources/fixtures/file7.json",
+                "src/test/resources/fixtures/file8.json", "json");
 
         Assertions.assertEquals(expected, actual);
     }
