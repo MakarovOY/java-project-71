@@ -41,8 +41,7 @@ public class Differ {
 
         }
 
-//
-//
+
         return StylishFormat.formatStylish(resultMap, map1, map2);
     }
     public static String generate(String filepath1, String filepath2) throws Exception {

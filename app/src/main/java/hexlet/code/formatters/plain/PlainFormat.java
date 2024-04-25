@@ -54,7 +54,11 @@ public class PlainFormat {
             if (!isValuePrimitive(v)) {
                 map.put(k, "[complex value]");
             }
+            if(v.getClass().getName().equals("java.lang.String")){
+                map.put(k,"'" + v +"'" );
+            }
         });
         return map;
     }
+ //
 }
