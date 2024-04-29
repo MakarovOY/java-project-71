@@ -13,7 +13,7 @@ class ParserTest {
     private Map expected = new HashMap();
 
     @BeforeEach
-    @SuppressWarnings("magicnumber")
+    @SuppressWarnings("checkstyle:magicnumber")
             public void createMap() {
         expected.put("host", "hexlet.io");
         expected.put("timeout", 50);
