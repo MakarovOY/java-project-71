@@ -2,7 +2,6 @@ package hexlet.code;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
-import hexlet.code.formatters.Json.JsonObject;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -38,11 +37,11 @@ public class Parser {
         return map;
 
     }
-    public static String parseToJsonAsString(JsonObject jsonObject)throws Exception {
+    public static String parseToJsonAsString(Map mapTopParse)throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
 
 
-        String jsonObjectAsString = objectMapper.writeValueAsString(jsonObject);
+        String jsonObjectAsString = objectMapper.writeValueAsString(mapTopParse);
 
         return jsonObjectAsString;
     }

@@ -57,9 +57,11 @@ class DifferTest {
     }
     @Test
     public void testDifferJsonFormat() throws Exception {
-        String expected = "{\"valueOfKeyDoesntChange\":{\"key1\":\"Some text\"},\"valueOfKeyWasChanged\""
-                + ":{\"numbers1\":\"[1, 2, 3, 4] before, [1, 2] after\"},\"keyWasDeleted\":{\"key3\":\"null\","
-                + "\"setting\":true},\"keyWasAdded\":{\"numbers2\":[3,4,5],\"chars\":[\"a\",\"b\",\"c\",\"d\"]}}";
+        String expected =
+                "{\"keyWasDeleted\":{\"key3\":\"null\",\"setting\":true},\"valueOfKeyWasChanged\":"
+                        + "{\"numbers1\":\"[1, 2, 3, 4] before, [1, 2] after\"},\"valueOfKeyDoesntChange\":"
+                        + "{\"key1\":\"Some text\"},\"keyWasAdded\":"
+                        + "{\"numbers2\":[3,4,5],\"chars\":[\"a\",\"b\",\"c\",\"d\"]}}";
         String actual = Differ.generate("src/test/resources/fixtures/file7.json",
                 "src/test/resources/fixtures/file8.json", "json");
 

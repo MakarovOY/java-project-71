@@ -10,36 +10,49 @@ public class JsonFormat {
 
     public static String formatJson(Map resultMap, Map map1, Map map2)  throws Exception {
 
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.setValueOfKeyDoesntChange(new HashMap());
-        jsonObject.setValueOfKeyWasChanged(new HashMap());
-        jsonObject.setKeyWasDeleted(new HashMap());
-        jsonObject.setKeyWasAdded(new HashMap());
+
+        Map valueOfKeyDoesntChange = new HashMap<>();
+        Map valueOfKeyWasChanged = new HashMap<>();
+        Map keyWasDeleted = new HashMap<>();
+        Map keyWasAdded = new HashMap<>();
+
 
 
         resultMap.forEach((k, v) -> {
-
             switch ((int) v) {
 
                 case FileCondition.VALUE_OF_KEY_DOESNT_CHANGE :
-                    jsonObject.getValueOfKeyDoesntChange().put(k, map1.get(k));
+                    valueOfKeyDoesntChange.put(k, map1.get(k));
                     break;
                 case FileCondition.VALUE_OF_KEY_WAS_CHANGED:
-                    jsonObject.getValueOfKeyWasChanged()
+                    valueOfKeyWasChanged
                             .put(k, map1.get(k).toString() + " before, " + map2.get(k).toString() + " after");
                     break;
                 case FileCondition.KEY_WAS_DELETED:
-                    jsonObject.getKeyWasDeleted().put(k, map1.get(k));
+                    keyWasDeleted.put(k, map1.get(k));
                     break;
                 case FileCondition.KEY_WAS_ADDED:
-                    jsonObject.getKeyWasAdded().put(k, map2.get(k));
+                    keyWasAdded.put(k, map2.get(k));
                     break;
                 default:
                     break;
             }
         });
+        Map mapToParseInJsonObject = new HashMap<>();
 
-        return Parser.parseToJsonAsString(jsonObject);
+
+        putValue("valueOfKeyDoesntChange", mapToParseInJsonObject, valueOfKeyDoesntChange);
+        putValue("valueOfKeyWasChanged", mapToParseInJsonObject, valueOfKeyWasChanged);
+        putValue("keyWasDeleted", mapToParseInJsonObject, keyWasDeleted);
+        putValue("keyWasAdded", mapToParseInJsonObject, keyWasAdded);
+
+
+        return Parser.parseToJsonAsString(mapToParseInJsonObject);
+    }
+    public static void putValue(String key, Map mapJson, Map mapValue) {
+        if (mapValue.size() != 0) {
+            mapJson.put(key, mapValue);
+        }
     }
 
 }
