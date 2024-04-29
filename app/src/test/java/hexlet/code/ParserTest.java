@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParserTest {
     private Map expected = new HashMap();
-    @SuppressWarnings("MagicNumber")
+    @SuppressWarnings("magicnumber")
     @BeforeEach
             public void createMap() {
         expected.put("host", "hexlet.io");
