@@ -8,8 +8,6 @@ plugins {
     jacoco
     id ("checkstyle")
 
-
-
 }
 
 

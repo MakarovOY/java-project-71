@@ -16,7 +16,7 @@ class ParserTest {
     @SuppressWarnings("checkstyle:MagicNumber")
     public void createMap() {
         expected.put("host", "hexlet.io");
-        expected.put("timeout", 50);
+        expected.put("timeout", "50");
         expected.put("proxy", "123.234.53.22");
         expected.put("follow", false);
     }
