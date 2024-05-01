@@ -6,7 +6,7 @@ import java.util.concurrent.Callable;
 
 @CommandLine.Command (name = "gendiff", version =  "gendiff 1.00", description = "Compares two configuration"
         + " files and shows a difference.")
-public class App implements Callable {
+public final class App implements Callable {
 
     @CommandLine.Option(names = {"-h", "--help"}, usageHelp = true, description = "Show this help message and exit.")
     private boolean help;
