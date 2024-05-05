@@ -59,6 +59,11 @@ public class PlainFormat {
         if (!isValuePrimitive(object)) {
             return "[complex value]";
         }
+        if (object.getClass().getName().equals("java.lang.String") && !object.equals("null")) {
+
+            return "'" + object + "'";
+
+        }
         return object.toString();
     }
 
