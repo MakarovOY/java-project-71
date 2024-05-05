@@ -37,13 +37,5 @@ public class Parser {
         return map;
 
     }
-    public static String parseToJsonAsString(Map mapTopParse)throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-
-        String jsonObjectAsString = objectMapper.writeValueAsString(mapTopParse);
-
-        return jsonObjectAsString;
-    }
 
 }

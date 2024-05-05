@@ -21,9 +21,8 @@ public class Differ {
         var map2 = Parser.parseToJavaObject(filepath2);
 
         ArrayList<String> allKeys = new ArrayList<>(sortAllKeys(map1, map2));
-        LinkedHashMap resultMap = new LinkedHashMap();
+        LinkedHashMap<String, String> resultMap = new LinkedHashMap();
         allKeys.forEach(e -> {
-
 
             resultMap.put(e, FileCondition.getChangeIndex(map1, map2, e));
 
@@ -31,19 +30,19 @@ public class Differ {
 
         switch (formatName) {
             case "stylish":
-                return StylishFormat.formatStylish(resultMap, map1, map2);
+                return StylishFormat.formatStylish(FileCondition.getKeyInfo(resultMap, map1, map2));
             case "plain":
-                return PlainFormat.formatPlain(resultMap, map1, map2);
+                return PlainFormat.formatPlain(FileCondition.getKeyInfo(resultMap, map1, map2));
             case "json":
-                return JsonFormat.formatJson(resultMap, map1, map2);
+                return JsonFormat.formatJson(FileCondition.getKeyInfo(resultMap, map1, map2));
             default:
                 break;
 
         }
 
-
-        return StylishFormat.formatStylish(resultMap, map1, map2);
+        return StylishFormat.formatStylish(FileCondition.getKeyInfo(resultMap, map1, map2));
     }
+
     public static String generate(String filepath1, String filepath2) throws Exception {
 
         return generate(filepath1, filepath2,  "stylish");
@@ -70,6 +69,4 @@ public class Differ {
 
         return sortedAllKeys;
     }
-
-
 }

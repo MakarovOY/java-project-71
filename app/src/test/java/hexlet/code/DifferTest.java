@@ -58,10 +58,15 @@ class DifferTest {
     @Test
     public void testDifferJsonFormat() throws Exception {
         String expected =
-                "{\"keyWasDeleted\":{\"key3\":\"null\",\"setting\":true},\"valueOfKeyWasChanged\":"
-                        + "{\"numbers1\":\"[1, 2, 3, 4] before, [1, 2] after\"},\"valueOfKeyDoesntChange\":"
-                        + "{\"key1\":\"Some text\"},\"keyWasAdded\":"
-                        + "{\"numbers2\":[3,4,5],\"chars\":[\"a\",\"b\",\"c\",\"d\"]}}";
+                "{\"chars\":{\"keyChangeStatus\":\"KEY_WAS_ADDED\",\"keyPreviousValue\":\"null\","
+                        + "\"KeyActualValue\":[\"a\",\"b\",\"c\",\"d\"]},\"key1\":{\"keyChangeStatus\":"
+                        + "\"VALUE_OF_KEY_DOESNT_CHANGE\",\"keyPreviousValue\":\"Some text\",\"KeyActualValue\""
+                        + ":\"Some text\"},\"key3\":{\"keyChangeStatus\":\"KEY_WAS_DELETED\",\"keyPreviousValue\""
+                        + ":\"null\",\"KeyActualValue\":\"null\"},\"numbers1\":{\"keyChangeStatus\""
+                        + ":\"VALUE_OF_KEY_WAS_CHANGED\",\"keyPreviousValue\":[1,2,3,4],\"KeyActualValue\""
+                        + ":[1,2]},\"numbers2\":{\"keyChangeStatus\":\"KEY_WAS_ADDED\",\"keyPreviousValue\":\""
+                        + "null\",\"KeyActualValue\":[3,4,5]},\"setting\":{\"keyChangeStatus\":\"KEY_WAS_DELETED\""
+                        + ",\"keyPreviousValue\":true,\"KeyActualValue\":\"null\"}}";
         String actual = Differ.generate("src/test/resources/fixtures/file7.json",
                 "src/test/resources/fixtures/file8.json", "json");
 
