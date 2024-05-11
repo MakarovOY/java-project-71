@@ -1,6 +1,6 @@
-package hexlet.code.formatters.plain;
+package hexlet.code.formatters;
 
-import hexlet.code.FileCondition;
+import hexlet.code.FileDiff;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -13,19 +13,19 @@ public class PlainFormat {
 
         keysInfoMap.forEach((k, v) -> {
 
-            switch (v.get(FileCondition.KEY_CHANGE_STATUS).toString()) {
+            switch (v.get(FileDiff.KEY_CHANGE_STATUS).toString()) {
 
-                case FileCondition.VALUE_OF_KEY_WAS_CHANGED:
+                case FileDiff.VALUE_OF_KEY_WAS_CHANGED:
                     stringBuilder.append("Property '" + k + "' was updated. From "
-                            + changeObjectValue(v.get(FileCondition.KEY_PREVIOUS_VALUE))
-                            + " to " + changeObjectValue(v.get(FileCondition.KEY_ACTUAL_VALUE)) + "\n");
+                            + changeObjectValue(v.get(FileDiff.KEY_PREVIOUS_VALUE))
+                            + " to " + changeObjectValue(v.get(FileDiff.KEY_ACTUAL_VALUE)) + "\n");
                     break;
-                case FileCondition.KEY_WAS_DELETED:
+                case FileDiff.KEY_WAS_DELETED:
                     stringBuilder.append("Property '" + k + "' was removed" + "\n");
                     break;
-                case FileCondition.KEY_WAS_ADDED:
+                case FileDiff.KEY_WAS_ADDED:
                     stringBuilder.append("Property '" + k + "' was added with value: "
-                            + changeObjectValue(v.get(FileCondition.KEY_ACTUAL_VALUE)) + "\n");
+                            + changeObjectValue(v.get(FileDiff.KEY_ACTUAL_VALUE)) + "\n");
                     break;
                 default:
                     break;

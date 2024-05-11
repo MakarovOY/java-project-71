@@ -8,12 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-@SuppressWarnings("checkstyle:magicnumber")
+
 class ParserTest {
     private Map expected = new HashMap();
 
     @BeforeEach
-    @SuppressWarnings("checkstyle:MagicNumber")
     public void createMap() {
         expected.put("host", "hexlet.io");
         expected.put("timeout", "50");

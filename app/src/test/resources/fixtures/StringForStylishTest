@@ -1,0 +1,8 @@
+{
+    key1: 3
+  - key2: true
+  + key2: [1, 2]
+  - key3: text
+  - key4: [0, 1]
+  + key5: text2
+}

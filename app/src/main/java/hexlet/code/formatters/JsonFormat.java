@@ -1,4 +1,4 @@
-package hexlet.code.formatters.Json;
+package hexlet.code.formatters;
 
 
 import java.util.LinkedHashMap;

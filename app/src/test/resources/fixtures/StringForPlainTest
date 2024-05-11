@@ -1,0 +1,4 @@
+Property 'key2' was removed
+Property 'key3' was updated. From 'text1' to 'text5'
+Property 'key4' was updated. From 'text2' to 1
+Property 'key5' was added with value: true
