@@ -10,7 +10,8 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParserTest {
-    private Map expected = new HashMap();
+    Parser parser;
+    private Map<String, Object> expected = new HashMap();
 
     @BeforeEach
     public void createMap() {
@@ -19,12 +20,16 @@ class ParserTest {
         expected.put("proxy", "123.234.53.22");
         expected.put("follow", false);
     }
+    @BeforeEach
+    public void createParser() {
+        parser = new Parser();
+    }
+
 
     @Test
     public void testParseJSON() throws Exception {
 
-        Map actual =
-            Parser.parseToJavaObject("src/test/resources/fixtures/file1.json");
+        Map actual = parser.parseToJavaObject("src/test/resources/fixtures/file1.json");
 
         assertEquals(expected, actual);
 
@@ -32,8 +37,7 @@ class ParserTest {
     @Test
     public void testParseYAML() throws Exception {
 
-        Map actual =
-                Parser.parseToJavaObject("src/test/resources/fixtures/file1.yml");
+        Map actual = parser.parseToJavaObject("src/test/resources/fixtures/file1.yml");
 
         assertEquals(expected, actual);
     }

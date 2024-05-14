@@ -19,7 +19,8 @@ public class FileDiff {
     public static final String KEY_PREVIOUS_VALUE = "keyPreviousValue";
     public static final String KEY_ACTUAL_VALUE = "KeyActualValue";
 
-    public static LinkedHashMap getDiffMap(Map map1, Map map2) {
+
+    public static LinkedHashMap getDiffMap(Map<String, Object> map1, Map<String, Object> map2) {
 
 
         List<String> allKeysSorted = new ArrayList<>(sortKeys(map1, map2));
@@ -32,7 +33,7 @@ public class FileDiff {
 
         for (var k: allKeysSorted) {
 
-            Map keyInfo = new HashMap<>();
+            Map<String, Object> keyInfo = new HashMap<>();
 
             if (map1.containsKey(k) && map2.containsKey(k)) {
 
@@ -70,16 +71,13 @@ public class FileDiff {
         return  keysInfoMap;
     }
 
-    public static List sortKeys(Map map1, Map map2) {
+    public static List<String> sortKeys(Map map1, Map map2) {
 
         return Stream.concat(map1.keySet().stream(), map2.keySet().stream())
                 .distinct()
                 .sorted()
                 .toList();
     }
-
-
-
 
 
     public static void checkAndReplaceNullValue(Map map) {
@@ -92,5 +90,7 @@ public class FileDiff {
         });
 
     }
+
+
 }
 

@@ -31,12 +31,13 @@ public final class App implements Callable {
         new CommandLine(app).execute(args);
 
 
+
     }
     @Override
     public Integer call() throws Exception {
 
-
-        System.out.println(Differ.generate(filepath1, filepath2, format));
+        Differ differ = new Differ();
+        System.out.println(differ.generate(filepath1, filepath2, format));
         return 1;
     }
 

@@ -5,14 +5,19 @@ import hexlet.code.formatters.JsonFormat;
 import hexlet.code.formatters.PlainFormat;
 import hexlet.code.formatters.StylishFormat;
 
+import java.util.Map;
+
 public class Differ {
 
 
 
-    public static String generate(String filepath1, String filepath2, String formatName) throws Exception {
+    public String generate(String filepath1, String filepath2, String formatName) throws Exception {
 
-        var map1 = Parser.parseToJavaObject(filepath1);
-        var map2 = Parser.parseToJavaObject(filepath2);
+        Parser parser1 = new Parser();
+        Parser parser2 = new Parser();
+
+        Map<String, Object> map1 = parser1.parseToJavaObject(filepath1);
+        Map<String, Object> map2 = parser2.parseToJavaObject(filepath2);
 
 
 
@@ -24,16 +29,15 @@ public class Differ {
             case "json":
                 return JsonFormat.formatJson(FileDiff.getDiffMap(map1, map2));
             default:
-                break;
+                throw new Exception("Wrong file format");
 
         }
 
-        return StylishFormat.formatStylish(FileDiff.getDiffMap(map1, map2));
     }
 
-    public static String generate(String filepath1, String filepath2) throws Exception {
+    public String generate(String filepath1, String filepath2) throws Exception {
 
-        return generate(filepath1, filepath2,  "stylish");
+        return this.generate(filepath1, filepath2,  "stylish");
     }
 
 
