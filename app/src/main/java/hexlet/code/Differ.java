@@ -11,13 +11,12 @@ public class Differ {
 
 
 
-    public String generate(String filepath1, String filepath2, String formatName) throws Exception {
+    public static String generate(String filepath1, String filepath2, String formatName) throws Exception {
 
-        Parser parser1 = new Parser();
-        Parser parser2 = new Parser();
 
-        Map<String, Object> map1 = parser1.parseToJavaObject(filepath1);
-        Map<String, Object> map2 = parser2.parseToJavaObject(filepath2);
+
+        Map<String, Object> map1 = Parser.parseToJavaObject(filepath1);
+        Map<String, Object> map2 = Parser.parseToJavaObject(filepath2);
 
 
 
@@ -35,9 +34,9 @@ public class Differ {
 
     }
 
-    public String generate(String filepath1, String filepath2) throws Exception {
+    public static String generate(String filepath1, String filepath2) throws Exception {
 
-        return this.generate(filepath1, filepath2,  "stylish");
+        return generate(filepath1, filepath2,  "stylish");
     }
 
 

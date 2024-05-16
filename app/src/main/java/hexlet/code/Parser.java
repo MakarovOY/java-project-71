@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class Parser {
 
-    public  Map<String, Object> parseToJavaObject(String filepath) throws Exception {
+    public static Map<String, Object> parseToJavaObject(String filepath) throws Exception {
         Path path = Paths.get(filepath).toAbsolutePath().normalize();
 
         String str = Files.readString(path);
