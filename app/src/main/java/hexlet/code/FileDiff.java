@@ -29,7 +29,7 @@ public class FileDiff {
         checkAndReplaceNullValue(map1);
         checkAndReplaceNullValue(map2);
 
-        LinkedHashMap<String, Map> keysInfoMap = new LinkedHashMap();
+        LinkedHashMap<String, Map<String, Object>> keysInfoMap = new LinkedHashMap();
 
         for (var k: allKeysSorted) {
 
@@ -80,7 +80,7 @@ public class FileDiff {
     }
 
 
-    public static void checkAndReplaceNullValue(Map map) {
+    public static void checkAndReplaceNullValue(Map<String, Object> map) {
         map.forEach((k, v) -> {
 
             if (map.get(k) == null) {
